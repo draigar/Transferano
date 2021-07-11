@@ -296,13 +296,13 @@
 							<center>
 								<div class="tw-flex tw-justify-center">
 									<div class="tw-mr-6">
-										<a-icon type="smile" theme="filled" :style="`color: ${sColor}`" @click="sClick" class="tw-text-6xl tw-cursor-pointer"/>
+										<a-icon type="smile" theme="filled" :style="`color: ${sColor}`" class="tw-text-6xl tw-cursor-pointer" @click="sClick"/>
 									</div>
 									<div  class="tw-mr-6">
-										<a-icon type="meh" theme="filled" :style="`color: ${mColor}`" @click="mClick" class="tw-text-6xl tw-cursor-pointer"/>
+										<a-icon type="meh" theme="filled" :style="`color: ${mColor}`" class="tw-text-6xl tw-cursor-pointer" @click="mClick"/>
 									</div>
 									<div class="">
-										<a-icon type="frown" theme="filled" :style="`color: ${fColor}`" @click="fClick" class="tw-text-6xl tw-cursor-pointer"/>
+										<a-icon type="frown" theme="filled" :style="`color: ${fColor}`" class="tw-text-6xl tw-cursor-pointer" @click="fClick"/>
 									</div>
 								</div>
 								<div class="tw-mt-6">
@@ -342,15 +342,15 @@
 </template>
 
 <script>
+import coinSelect from "../main/coinSelect";
+import phoneVerification from "../main/phoneVerification";
+import documentVerification from "../main/documentVerification"
+
 function getBase64(img, callback) {
 	const reader = new FileReader();
 	reader.addEventListener('load', () => callback(reader.result));
 	reader.readAsDataURL(img);
 }
-
-import coinSelect from "../main/coinSelect";
-import phoneVerification from "../main/phoneVerification";
-import documentVerification from "../main/documentVerification"
 
 export default {
   components:{

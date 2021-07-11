@@ -3,6 +3,8 @@
     <perfect-scrollbar>
       <a-row class="tw-flex tw-pt-4 tw-pb-12" :gutter="16">
         <a-col
+          v-for="(data, i) in accountCards"
+          :key="i"
           :span="
             accountCards.length === 2
               ? 12
@@ -12,19 +14,20 @@
               ? 5
               : 12
           "
-          v-for="(data, i) in accountCards"
-          :key="i"
         >
         <div class="flip-card border-gray-200">
           <div class="flip-card-inner">
             <div class="flip-card-front tw-rounded-3xl tw-shadow-2xl tw-p-4 tw-flex tw-justify-between">
               <div>
-                <p class="tw-m-0 tw-p-0 tw-text-xs tw-font-semibold"> <img src="/icons/chartArrow.svg" /> {{data.content}}</p>
-                <h4 class="tw-m-0 tw-py-2 tw-text-gray-700" style="font-weight: 700; font-size: 28px; line-height: 36px">${{data.amount}}</h4>
-                <p class="tw-text-xs tw-m-0 tw-p-0 tw-text-gray-2">Flip to reveal address</p>
+					<span class="tw-flex tw-items-center tw-mb-1">
+						<a-icon type="caret-up" class="tw-text-sm tw-text-green-500"/><p class="tw-m-0 tw-p-0 tw-text-xs tw-text-green-500 tw-font-semibold"> {{data.content}}</p>
+					</span>
+                <span class="tw-text-gray-700 tw-text-2xl tw-font-semibold">${{data.amount}}</span>
+				<span class="tw-text-gray-400 tw-text-md">0.23474 BTC</span>
+                <p class="tw-text-xs tw-mt-6 tw-p-0 tw-text-gray-2">Flip to reveal address</p>
               </div>
               <div>
-                <img :src="`/icons/${data.icon}`" />
+                <img class="tw-w-8" :src="`/icons/${data.icon}`" />
               </div>
             </div>
             <div class="flip-card-back tw-rounded-3xl tw-shadow-lg tw-p-2 tw-flex tw-flex-col" :style="`background-color: ${data.color}`">

@@ -2,7 +2,7 @@
 <div class="tw-mt-8">
   <div class="tw-mx-6 tw-flex tw-justify-between tw-align-middle">
     <div class="">
-        <h2>Sell Order</h2>
+        <h2 class="tw-text-xl tw-font-semibold tw-text-gray-600">Sell Order</h2>
     </div>
     <div>
         <a-icon type="more" />

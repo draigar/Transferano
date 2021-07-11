@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Breadcrumb pageName="Profile"/>
+        <Breadcrumb page-name="Profile"/>
 
         <div class="tw-mt-10">
             <a-row  :gutter="16">
@@ -46,7 +46,7 @@
                             <a-col :span="12">
                                 <p class="tw-font-bold tw-text-gray-400 tw-m-0 tw-p-0">ASSETS TRADED </p>
                                 <a-row class=" " :gutter="16">
-                                    <a-col :span="8" v-for="(data, i) in accountCards" :key="i">
+                                    <a-col v-for="(data, i) in accountCards" :key="i" :span="8">
                                         <div class="tw-bg-white tw-shadow-lg rounded tw-py-3 tw-px-6 tw-mt-2">
                                             <div class="tw-w-full tw-align-middle tw-mr-3">
                                                 <p class="tw-text-sm tw-font-bold tw-text-gray-400 tw-m-0 tw-p-0"> <img :src="`/icons/${data.icon}`" class="tw-w-4" /> {{data.title}}</p>
@@ -154,10 +154,12 @@
 </template>
 <script>
 import Breadcrumb from '@/components/dashboard/main/breadcrumb'
-import accountCards from '~/components/dashboard/main/accountCards.vue'
 
 
 export default {
+    components: {
+        Breadcrumb,
+    },
     data() {
         return {
         cardLoading: false,
@@ -204,10 +206,6 @@ export default {
             },
         ],
         }
-    },
-    components: {
-        Breadcrumb,
-        accountCards
     }
 }
 </script>

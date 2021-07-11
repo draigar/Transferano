@@ -15,17 +15,17 @@
 </template>
 
 <script>
-import offerTable from "./offerTable";
 import buyAdModal from "../main/buyAdModal"
 import sellAdModal from "../main/sellAdModal"
+import offerTable from "./offerTable";
 
 export default {
+	components: {
+		offerTable, buyAdModal, sellAdModal
+	},
 	data() {
 		return {
 		}
-	},
-	components: {
-		offerTable, buyAdModal, sellAdModal
 	},
 	methods: {
 		buyAdModal(){
