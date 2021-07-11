@@ -1,7 +1,7 @@
 <template>
 <div class="tw-mt-8">
   <div>
-    <h2 class="tw-ml-6">Recent trading activities</h2>
+    <h2 class="tw-ml-6 tw-text-xl tw-font-semibold tw-text-gray-600">Recent trading activities</h2>
   </div>
   <div class="">
     <a-card :loading="transactionsLoading" class="tw-p-5 tw-bg-white tw-border-transparent tw-rounded-3xl tw-shadow-xl" :bodyStyle="{padding: 0}">

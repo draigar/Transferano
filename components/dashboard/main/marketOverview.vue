@@ -1,7 +1,7 @@
 <template>
 <div class="tw-mt-8">
   <div>
-    <h2 class="tw-ml-6">Market Overiew</h2>
+    <h2 class="tw-ml-6 tw-text-xl tw-font-semibold tw-text-gray-600">Market Overiew</h2>
   </div>
   <div class="tw-bg-white border-gray-200 tw-rounded-3xl tw-shadow-xl tw-p-6">
        <div>

@@ -27,15 +27,15 @@
 import TopBar from '@/components/dashboard/main/header'
 import LeftSideBar from '@/components/dashboard/main/sidebar'
 export default {
+  components: {
+    TopBar,
+    LeftSideBar,
+  },
   data() {
     return {
       layoutWidth: 200,
       collapsed: false,
     }
-  },
-  components: {
-    TopBar,
-    LeftSideBar,
   },
 }
 </script>

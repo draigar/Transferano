@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 <template>
 <div>
   <a-table
@@ -6,8 +7,8 @@
     :pagination="pagination"
     :loading="loading"
   >
-    <div  slot="coin" slot-scope="coin" class="">
-        <img :src="`/icons/${coin.img}`" class="tw-w-7" />
+    <div  slot="coin" slot-scope="coin" class="tw-flex tw-items-center">
+        <img :src="`/icons/${coin.img}`" class="tw-w-7 tw-mr-1" />
         <span class="tw-font-semibold tw-text-base">{{ coin.name }}</span>
     </div>
     <span slot="rate" slot-scope="rate"> ${{ rate }} </span>
@@ -40,10 +41,11 @@
 </template>
 
 <script>
+import buyorSellAddModal from "../main/buyorSellAddModal";
+
 const data = [
   {
     key: '1',
-    coin: 'Bitcoin',
     amount: '50.00',
      coin: {
       img: 'ethereum.svg',
@@ -61,7 +63,6 @@ const data = [
   },
   {
     key: '2',
-    coin: 'Bitcoin',
     amount: '50.00',
     coin: {
       img: 'ethereum.svg',
@@ -79,7 +80,6 @@ const data = [
   },
   {
     key: '3',
-    coin: 'Bitcoin',
     amount: '50.00',
     coin: {
       img: 'ethereum.svg',
@@ -96,9 +96,10 @@ const data = [
     status: 3, // 1 for pending, 2 for cancelled, 3 for success
   },
 ]
-import buyorSellAddModal from "../main/buyorSellAddModal";
 
 export default {
+	components: { buyorSellAddModal, },
+
   data() {
     return {
       data,
@@ -110,13 +111,12 @@ export default {
       },
     }
   },
-  components: {
-	  buyorSellAddModal,
-  },
+
   computed: {
     columns() {
       let { sortedInfo, filteredInfo } = this
       sortedInfo = sortedInfo || {}
+      // eslint-disable-next-line no-unused-vars
       filteredInfo = filteredInfo || {}
       const columns = [
         {

@@ -71,17 +71,20 @@
         <template v-for="(menu, i) in menuData">
           <a-menu-item :key="`${i}`" class="tw-mb-4">
             <NuxtLink :to="menu.url">
-              <a-icon v-if="menu.iconType === 'icon'" type="user" />
-              <img
-                v-if="menu.iconType === 'img'"
-                :src="menu.icon"
-                class="tw-pr-2"
-                style="width: 24px"
-              />
-              <span
-                style="font-size: 13px; line-height: 19.1px; font-weight: 600"
-                >{{ menu.title }}</span
-              >
+				<span class="tw-flex tw-items-center">
+					<a-icon v-if="menu.iconType === 'icon'" type="user" />
+						<img
+						v-if="menu.iconType === 'img'"
+						:src="menu.icon"
+						class="tw-pr-2"
+						style="width: 24px"
+						/>
+						<span
+						style="font-size: 13px; line-height: 19.1px; font-weight: 600"
+						>{{ menu.title }}</span>
+
+				</span>
+              
             </NuxtLink>
           </a-menu-item>
           <!-- <a-menu-item :key="`${i}`" class="tw-mb-4">
@@ -108,17 +111,17 @@
 
 <script>
 import { getLeftMenuData } from '@/constants/menu'
-import homeIcon from '@/components/UI/sidebarIcons/homeIcon.vue'
+// import homeIcon from '@/components/UI/sidebarIcons/homeIcon.vue'
 export default {
+  components: {
+    // homeIcon,
+  },
   data() {
     return {
       collapsed: false,
       menuData: getLeftMenuData,
       selected: ['0'],
     }
-  },
-  components: {
-    homeIcon,
   },
   beforeDestroy() {
     this.$nuxt.$off()

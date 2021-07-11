@@ -5,6 +5,14 @@
                 <a-col :span="6">
                     <coinSelect/>
                 </a-col>
+				<a-radio-group default-value="1" button-style="solid" class="tw-float-right">
+					<a-radio-button value="1">
+					Buy Orders
+					</a-radio-button>
+					<a-radio-button value="2">
+					Sell Orders
+					</a-radio-button>
+				</a-radio-group>
                 <!-- <a-col :span="6" :offset="12">
                     <a-dropdown placement="bottomCenter" class="tw-float-right">
                     <a-button size="large" type="" class="tw-bg-blue-800 tw-text-white tw-rounded-md">New order</a-button>

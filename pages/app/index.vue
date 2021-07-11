@@ -24,26 +24,18 @@ import transactions from '@/components/dashboard/main/transactions'
 import sellOrder from '@/components/dashboard/main/sellOrder'
 import buyOrder from '@/components/dashboard/main/buyOrder'
 import Breadcrumb from '@/components/dashboard/main/breadcrumb'
-import accountCards from '~/components/dashboard/main/accountCards.vue'
 import marketOverview from '@/components/dashboard/main/marketOverview'
+import accountCards from '~/components/dashboard/main/accountCards.vue'
 import MarketOverview from '~/components/dashboard/main/marketOverview.vue';
 
 export default {
-  data() {
-    return {
-      collapsed: false,
-    };
-  },
-  components: {
-    marketPlace,
-    transactions,
-    sellOrder,
-    buyOrder,
-    accountCards,
-    Breadcrumb,
-    marketOverview,
-    MarketOverview
-  }
+	components: { marketPlace, transactions, sellOrder, buyOrder, accountCards, Breadcrumb, marketOverview, MarketOverview },
+
+	data() {
+		return {
+		collapsed: false,
+		};
+	},
 }
 </script>
 

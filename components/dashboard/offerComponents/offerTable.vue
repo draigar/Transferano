@@ -126,6 +126,7 @@ export default {
     columns() {
       let { sortedInfo, filteredInfo } = this
       sortedInfo = sortedInfo || {}
+      // eslint-disable-next-line no-unused-vars
       filteredInfo = filteredInfo || {}
       const columns = [
         {

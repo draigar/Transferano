@@ -1,20 +1,31 @@
 <template>
 <div>
   <div>
-    <h2 class="tw-ml-6">Market Place</h2>
+    <h2 class="tw-ml-6 tw-text-xl tw-font-semibold tw-text-gray-600">Market Place</h2>
   </div>
   <div class="tw-bg-white border-gray-200 tw-rounded-3xl tw-shadow-xl">
       <a-tabs size="large" class="tab-head">
-        <a-tab-pane key="1" tab="Market Orders">
-         <ordertab/>
+        <a-tab-pane key="1">
+			<span slot="tab">
+				Market Orders
+			</span>
+         	<ordertab/>
         </a-tab-pane>
-        <a-tab-pane key="2" tab="My Advertisements">
+        <a-tab-pane key="2">
+			<span slot="tab">
+				My Advertisements
+				<a-badge class="tw-ml-1" count="4" :number-style="{ backgroundColor: '#52c41a' }" />
+			</span>
           <offertab/>
         </a-tab-pane>
-        <a-tab-pane key="3" tab="My Trades">
+        <a-tab-pane key="3">
+			<span slot="tab">
+				My Trades
+				<a-badge  class="tw-ml-1" count="4" :number-style="{ backgroundColor: '#52c41a' }"  />
+			</span>
           <myOrderTab/>
         </a-tab-pane>
-        <a-button class="tw-mr-6 tw-border-primary tw-border-2 tw-text-primary" slot="tabBarExtraContent" @click="open">
+        <a-button slot="tabBarExtraContent" class="tw-mr-6 tw-border-primary tw-border-2 tw-text-primary" @click="open">
           <a-icon type="funnel-plot" class="" /> filter options
         </a-button>
       </a-tabs>
@@ -44,6 +55,12 @@ import myOrderTab from "../myOrderComponents/myOrderTab";
 import filterOptionModal from "./filterModal";
 
 export default {
+  components: {
+    ordertab,
+    offertab,
+    myOrderTab,
+    filterOptionModal
+  },
   data() {
     return {
       selectedKey: 0,
@@ -60,12 +77,6 @@ export default {
         },
       ]
     }
-  },
-  components: {
-    ordertab,
-    offertab,
-    myOrderTab,
-    filterOptionModal
   },
   methods: {
     selectOffers(key) {
