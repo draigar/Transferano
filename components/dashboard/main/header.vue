@@ -66,29 +66,44 @@
 				</span> 
 			</a>
 			<a-menu slot="overlay">
+				
 				<a-menu-item>
-					<a href="javascript:;"><a-icon type="user"  class="tw-mr-2 tw-text-lg" />Profile</a>
+					<NuxtLink  to="/app/profile/ajet">
+						<a href="javascript:;"><a-icon type="user"  class="tw-mr-2 tw-text-lg" />Profile</a>
+					</NuxtLink>
 				</a-menu-item>
-				<a-menu-item>
+				<a-menu-item  @click="verifyAccountModal">
 					<a href="javascript:;"><a-icon type="safety"  class="tw-mr-2 tw-text-lg" />Verify Account</a>
 				</a-menu-item>
 				<a-menu-item>
-					<a href="javascript:;"><a-icon type="usergroup-add"  class="tw-mr-2 tw-text-lg" />Invite Friends</a>
+					<NuxtLink  to="/app/">
+						<a href="javascript:;"><a-icon type="usergroup-add"  class="tw-mr-2 tw-text-lg" />Invite Friends</a>
+					</NuxtLink>
 				</a-menu-item>
 				<a-menu-item>
-					<a href="javascript:;"><a-icon type="setting"  class="tw-mr-2  tw-text-lg" />Settings</a>
+					<NuxtLink  to="/app/settings">
+						<a href="javascript:;"><a-icon type="setting"  class="tw-mr-2  tw-text-lg" />Settings</a>
+					</NuxtLink>
 				</a-menu-item>
 				<a-menu-item>
-					<a href="javascript:;"><a-icon type="lock"  class="tw-mr-2  tw-text-lg" /> Logout</a>
+					<NuxtLink  to="/app/profile/ajet">
+						<a href="javascript:;"><a-icon type="lock"  class="tw-mr-2  tw-text-lg" /> Logout</a>
+					</NuxtLink>
 				</a-menu-item>
 			</a-menu>
 		</a-dropdown>
     </div>
+	<verifyAccountModal ref="vamodal"></verifyAccountModal>
   </a-layout-header>
 </template>
 
 <script>
+import verifyAccountModal from '@/components/dashboard/main/verifyAccountModal'
+
 export default {
+	components: {
+		verifyAccountModal
+	},
   data() {
     return {
       collapsed: false
@@ -106,7 +121,10 @@ export default {
         this.collapsed = true
         this.$nuxt.$emit('collapsed', true)
       }
-    }
+    },
+	verifyAccountModal(){
+        this.$refs.vamodal.showModal()
+    },
   }
 }
 </script>

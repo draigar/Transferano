@@ -23,7 +23,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'ant-design-vue/dist/antd.css',
+    //'ant-design-vue/dist/antd.css',
+	  '~/assets/ant/main.less',
 	'~assets/css/index.css'
   ],
 
@@ -39,7 +40,19 @@ export default {
       src: '@/plugins/vue2-perfect-scrollbar',
       mode: 'client'
     },
-  ],
+	],
+  
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+ build: {
+    loaders: {
+      less: {
+        lessOptions: {
+          javascriptEnabled: true,
+          math: 'always',
+        },
+      },
+    },
+  },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -115,9 +128,6 @@ export default {
     middleware: ['index'],
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  },
   
   server: {
     port: process.env.PORT || 3050, // default port

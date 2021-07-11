@@ -10,10 +10,10 @@
 		</div>
 		<div>
 			<div class="tw-float-right" >
-			<a-button size="large" class="tw-mr-1 tw-bg-blue-600 tw-text-white tw-rounded-md tw-border-none tw-font-bold" type="primary" @click="buyNowModal">
+			<a-button size="large" class="tw-mr-1 tw-text-white tw-rounded-md tw-border-none tw-font-bold" type="primary" @click="buyNowModal">
 			Buy Now
 			</a-button>
-			<a-button size="large" class="tw-mr-1 tw-bg-blue-600 tw-text-white tw-rounded-md tw-border-none tw-font-bold" type="primary" @click="sellNowModal">
+			<a-button size="large" class="tw-mr-1 tw-text-white tw-rounded-md tw-border-none tw-font-bold" type="primary" @click="sellNowModal">
 			Sell Now
 			</a-button>
 

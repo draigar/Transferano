@@ -14,18 +14,18 @@
         <a-tab-pane key="2">
 			<span slot="tab">
 				My Advertisements
-				<a-badge class="tw-ml-1" count="4" :number-style="{ backgroundColor: '#52c41a' }" />
+				<a-badge class="tw-ml-1" count="4" :number-style="{ backgroundColor: '#2AAAC0' }" />
 			</span>
           <offertab/>
         </a-tab-pane>
         <a-tab-pane key="3">
 			<span slot="tab">
 				My Trades
-				<a-badge  class="tw-ml-1" count="4" :number-style="{ backgroundColor: '#52c41a' }"  />
+				<a-badge  class="tw-ml-1" count="4" :number-style="{ backgroundColor: '#2AAAC0' }"  />
 			</span>
           <myOrderTab/>
         </a-tab-pane>
-        <a-button slot="tabBarExtraContent" class="tw-mr-6 tw-border-primary tw-border-2 tw-text-primary" @click="open">
+        <a-button slot="tabBarExtraContent" class="tw-mr-6 tw-rounded-md tw-border-none tw-font-bold" type="primary" size="large" @click="open">
           <a-icon type="funnel-plot" class="" /> filter options
         </a-button>
       </a-tabs>

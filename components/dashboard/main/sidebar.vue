@@ -70,7 +70,7 @@
       >
         <template v-for="(menu, i) in menuData">
           <a-menu-item :key="`${i}`" class="tw-mb-4">
-            <NuxtLink :to="menu.url">
+            <NuxtLink  :to="menu.url">
 				<span class="tw-flex tw-items-center">
 					<a-icon v-if="menu.iconType === 'icon'" type="user" />
 						<img
@@ -82,9 +82,7 @@
 						<span
 						style="font-size: 13px; line-height: 19.1px; font-weight: 600"
 						>{{ menu.title }}</span>
-
 				</span>
-              
             </NuxtLink>
           </a-menu-item>
           <!-- <a-menu-item :key="`${i}`" class="tw-mb-4">
