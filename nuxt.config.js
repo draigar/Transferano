@@ -60,9 +60,25 @@ export default {
 	// https://nuxt-socket-io.netlify.app/
     'nuxt-socket-io',
     // https://auth.nuxtjs.org
-    // '@nuxtjs/auth',
+    '@nuxtjs/auth-next',
     'cookie-universal-nuxt',
   ],
+
+  auth: {
+    // Options
+    strategies: {
+      google: {
+        clientId: '530632032738-hpn3u6fv1dqfopd30s4t051pmiu1ft6j.apps.googleusercontent.com',
+        scope: ['profile', 'email'],
+        redirectUri: 'http://localhost:3050/auth/signed-in',
+        codeChallengeMethod: '',
+        token: {
+          maxAge: 3600,
+        },
+        responseType: 'token id_token'
+      },
+    }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

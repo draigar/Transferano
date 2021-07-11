@@ -45,8 +45,10 @@
                 tw-items-center
                 tw-justify-center
               "
+              type="button"
               style="width: 315px; height: 40px"
               size="large"
+              @click="loginWith('google')"
             >
               <a-icon type="google" class="tw-px-4" /> Login with Google
             </a-button>
@@ -143,6 +145,17 @@ export default {
     showModal() {
       this.visible = true
     },
+    loginWith(sso) {
+      if (sso === 'google') {
+        this.$auth.loginWith('google')
+        .then((r) => {
+          console.log(r);
+        })
+        .catch((e) => {
+          console.log(e);
+        })
+      }
+    },
     handleOk(e) {
       console.log(e)
       this.visible = false
@@ -202,7 +215,7 @@ export default {
     },
     submit(e) {
       e.preventDefault();
-      var auth0 = new Auth0.WebAuth({
+      const auth0 = new Auth0.WebAuth({
         domain: process.env.AUTH_DOMAIN,
         clientID: process.env.CLIENT_ID,
         redirectUri: 'http://localhost:3050/auth/signed-in',
