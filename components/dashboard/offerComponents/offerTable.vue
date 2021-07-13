@@ -21,8 +21,8 @@
       }}</span
     >
     <span slot="rate" slot-scope="rate"> ${{ rate }} </span>
-   <div  slot="coin" slot-scope="coin" class="">
-        <img :src="`/icons/${coin.img}`" class="tw-w-7" />
+   <div  slot="coin" slot-scope="coin" class="tw-flex tw-items-center">
+        <img :src="`/icons/${coin.img}`" class="tw-w-7 tw-mr-1" />
         <span class="tw-font-semibold tw-text-base">{{ coin.name }}</span>
     </div>
     <div slot="buyer" slot-scope="buyer" class="tw-flex">
