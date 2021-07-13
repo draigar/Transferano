@@ -5,7 +5,7 @@
                 <a-col :span="6">
                     <coinSelect/>
                 </a-col>
-				<a-radio-group default-value="1" button-style="solid" class="tw-float-right">
+				<a-radio-group default-value="1" button-style="" class="tw-mr-5 tw-float-right tw-rounded-md tw-border-none tw-font-bold" size="large">
 					<a-radio-button value="1">
 					Buy Orders
 					</a-radio-button>

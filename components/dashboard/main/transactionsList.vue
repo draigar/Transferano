@@ -24,8 +24,8 @@
           <a-icon v-if="transaction.txnType === 1" type="arrow-left" />
           <a-icon v-if="transaction.txnType === 2" type="arrow-right" />
         </a-avatar>
-        <div class="tw-ml-5">
-           <img :src="`/icons/${transaction.coin.img}`" class="tw-w-7" />
+        <div class="tw-ml-5 tw-flex tw-items-center">
+           <img :src="`/icons/${transaction.coin.img}`" class="tw-w-7 tw-mr-1" />
            <span class="tw-font-semibold tw-text-base">{{ transaction.coin.name }}</span>
         </div>
       </div>
