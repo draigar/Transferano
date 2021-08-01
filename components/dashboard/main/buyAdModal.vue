@@ -7,15 +7,15 @@
       :visible="visible"
       @close="handleOk">
 		<div>
-			<div class="tw-px-6 tw-mt-10">
-				<coinSelect/>
+			<div class="tw-px-3 tw-mt-4">
+				<coinSelect class="tw-w-full"/>
 				<label>
-					<span class=" tw-text-sm">Current Market Value: </span>
-					<span class="tw-text-blue-600 tw-text-sm tw-font-semibold">18,048,700.00 </span>
-					<span class=" tw-text-sm tw-font-semibold">NGN/ETH</span>
+					<span class=" tw-text-xs">Current Market Value: </span>
+					<span class="tw-text-green-500 tw-text-xs tw-font-semibold">18,048,700.00 </span>
+					<span class=" tw-text-xs tw-font-semibold">NGN/ETH</span>
 				</label>
 				<div class="tw-mt-6 tw-bg-gray-50 tw-px-6 tw-py-4 tw-rounded-md">
-					<a-radio-group class="tw-font-semibold tw-rounded-md" default-value="1" button-style="solid">
+					<a-radio-group class="tw-w-full tw-font-semibold tw-rounded-md" default-value="1" button-style="solid" block>
 						<a-radio-button value="1">
 						Fixed Price
 						</a-radio-button>
@@ -27,37 +27,37 @@
 						<label class=" tw-text-md tw-font-semibold">
 							Fixed Price
 						</label>
-						<a-input size="large">
+						<a-input >
 						</a-input>
 						
-						<div class="tw-mt-3 tw-flex tw-justify-between">
+						<div class="tw-mt-2 tw-mb-3 tw-flex tw-justify-between">
 							<p class="">
 							<span class=" tw-text-xs">Price sellers will see: </span><br>
-							<span class="tw-text-blue-600 tw-text-md tw-font-semibold">18,048,700.00 </span>
+							<span class="tw-text-green-500 tw-text-sm tw-font-semibold">18,048,700.00 </span>
 							<span class=" tw-text-md tw-font-semibold">NGN/ETH</span>
 							</p>
 							<p class="">
 								<span class=" tw-text-xs">Price that you pay: </span><br>
-								<span class="tw-text-blue-600 tw-text-md tw-font-semibold">18,048,700.00 </span>
+								<span class="tw-text-green-500 tw-text-sm tw-font-semibold">18,048,700.00 </span>
 								<span class=" tw-text-md tw-font-semibold">NGN/ETH</span>
 							</p>
 						</div>
-						<label class="tw-mt-3 tw-text-md tw-font-semibold">
+						<label class="tw-text-md tw-font-semibold">
 							Amount of ETH
 						</label>
-						<a-input size="large">
+						<a-input >
 						</a-input>
 						<label class="tw-mt-3 tw-text-md tw-font-semibold">
 							Maximum Amount of ETH
 						</label>
-						<a-input size="large">
+						<a-input >
 						</a-input>
 					</div>
 				</div>
 				<div class="tw-mt-2 tw-bg-gray-50 tw-px-6 tw-py-4 tw-rounded-md">
 					<p class=" tw-text-base tw-font-semibold tw-mb-3">Payment</p>
 					<label class=" tw-text-md tw-font-semibold">Select the Bank you're sending from</label>
-					<a-select class="tw-w-full tw-mb-2" size="large">
+					<a-select class="tw-w-full tw-mb-2" >
 						<a-select-option value="UBA">
 							United Bank of Africa
 						</a-select-option>
@@ -72,7 +72,7 @@
 						</a-select-option>
 					</a-select> 
 					<label  class=" tw-text-md tw-font-semibold">Payment window</label>
-					<a-select class="tw-w-full" size="large">
+					<a-select class="tw-w-full" >
 						<a-select-option value="UBA">
 							15 minutes
 						</a-select-option>

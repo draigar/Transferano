@@ -4,8 +4,9 @@
     :data-source="data"
     :pagination="pagination"
     :loading="loading"
+	size="small"
   >
-    <div slot="amount" slot-scope="amount">${{ amount }}</div>
+    <div slot="amount" slot-scope="amount" class="tw-text-sm">${{ amount }}</div>
     <span
       slot="status"
       slot-scope="text"
@@ -15,6 +16,7 @@
           : text === 2
           ? 'tw-text-error-1'
           : 'tw-text-success',
+		  'tw-text-sm'
       ]"
       >{{
         text === 1 ? 'Pending' : text === 2 ? 'Cancelled' : 'Successful'
@@ -23,7 +25,7 @@
     <span slot="rate" slot-scope="rate"> ${{ rate }} </span>
    <div  slot="coin" slot-scope="coin" class="tw-flex tw-items-center">
         <img :src="`/icons/${coin.img}`" class="tw-w-7 tw-mr-1" />
-        <span class="tw-font-semibold tw-text-base">{{ coin.name }}</span>
+        <span class="tw-font-semibold tw-text-sm">{{ coin.name }}</span>
     </div>
     <div slot="buyer" slot-scope="buyer" class="tw-flex">
       <img
@@ -31,7 +33,7 @@
         class="tw-w-10 tw-h-10 tw-mr-2 tw-rounded-full"
       />
       <div class="tw-flex tw-flex-col">
-        <span class="">{{ buyer.name }}</span>
+        <span class="tw-text-sm">{{ buyer.name }}</span>
         <span>
           <a-icon
             v-for="s in buyer.star"

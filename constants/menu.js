@@ -9,7 +9,7 @@ export const getLeftMenuData = [
     {
         title: 'Exchange',
         key: 'exchange',
-        url: '',
+        url: '/app/exchange',
         iconType: 'img', // img, icon
         icon: '/icons/stock-1.svg'
     },
