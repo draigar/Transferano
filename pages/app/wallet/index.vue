@@ -51,7 +51,7 @@
 										<a-icon type="copy" theme="filled" slot="addonAfter"/>
 									</a-input>
 								</span>
-								<vue-qrcode value="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" class="tw-w-3/4 tw-m-auto"/>
+								<!-- <vue-qrcode value="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" class="tw-w-3/4 tw-m-auto"/> -->
                             </div>
                         </div>
 					</div>
@@ -66,7 +66,7 @@
 import Breadcrumb from '@/components/dashboard/main/breadcrumb'
 import swapAssetModal from '@/components/dashboard/main/swapAsset'
 import accountCards from '~/components/dashboard/main/accountCards.vue'
-import VueQrcode from 'vue-qrcode'
+// import VueQrcode from 'vue-qrcode'
 
 
 export default {
@@ -146,7 +146,7 @@ export default {
     components: {
         Breadcrumb,
         accountCards,
-		VueQrcode,
+		// VueQrcode,
 		swapAssetModal
     },
 	computed: {
