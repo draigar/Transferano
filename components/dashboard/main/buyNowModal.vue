@@ -2,7 +2,7 @@
   	<a-drawer
       title="Start a trade"
       placement="right"
-      :width="720"
+      :width="600"
       :closable="false"
       :visible="visible"
       @close="handleOk">
@@ -16,125 +16,66 @@
 			<div class="steps-content">
 				<div v-if="current == 0">
 					<div class="tw-px-6 tw-mt-10">
-						<coinSelect/>
-						<!-- <div class="tw-mb-2">
-							<label>
-								How much do you want to buy (Ethereum)
-							</label>
-							<a-input size="large"  addon-after="ETH"/>
-						</div> -->
-						<div class="tw-mb-2">
-							<label>
-								How much do you want to buy
-							</label>
-							<a-input size="large">
-								  <a-radio-group slot="addonAfter" default-value="a" size="small">
-									<a-radio-button class="tw-font-semibold" value="a">
-									ETH
-									</a-radio-button>
-									<a-radio-button class="tw-font-semibold" value="b">
-									NGN
-									</a-radio-button>
-								</a-radio-group>
-								<!-- <a-select
-								slot="addonAfter"
-								v-decorator="['suffix', { initialValue: 'ETH' }]"
-								style="width: 70px">
-									<a-select-option value="ETH">
+						<div class="tw-flex tw-mb-6">
+							<div class="tw-mr-1">
+								<label class="tw-font-semibold tw-ml-2">
+									Asset
+								</label>
+								<coinSelect class="tw-w-full"/>
+							</div>
+							
+							<div class="tw-ml-1">
+								<label class="tw-font-semibold tw-ml-2">
+									How much do you want to buy
+								</label>
+								<a-input>
+									<a-radio-group slot="addonAfter" default-value="a" size="small">
+										<a-radio-button class="tw-font-semibold" value="a">
 										ETH
-									</a-select-option>
-									<a-select-option value="NGN">
+										</a-radio-button>
+										<a-radio-button class="tw-font-semibold" value="b">
 										NGN
-									</a-select-option>
-								</a-select> -->
-							</a-input>
-						</div>
-
-						<div class="tw-mt-6 tw-mb-2">
-							<div class="tw-bg-gray-50 tw-px-6 tw-py-4 tw-flex tw-justify-between tw-items-center ">
-								<div>
-									<p class="tw-p-0 tw-m-0">
-										<span class="tw-text-blue-600 tw-text-lg tw-font-semibold">18,048,700.00 </span>
-										<span class=" tw-text-lg tw-font-semibold">NGN/ETH</span>
-										<span class=" tw-text-lg"> – via Guaranty Trust Bank</span>
-									</p>
-									<p class="tw-flex tw-p-0 tw-m-0 tw-mt-1">
-										<span class="tw-text-base">druglaw</span>
-									</p>
-									<p class="tw-p-0 tw-m-0 tw-mt-1">
-										<span class="tw-text-base">Total Amount: </span>
-										<span class="tw-text-base tw-font-semibold"> 0.0002345 ETH</span>
-									</p>
-									<p class="tw-p-0 tw-m-0 tw-mt-1">
-										<span class="tw-text-base">Completion time: ~30s</span>
-									</p>
-								</div>
-								<div>
-									<a-popconfirm
-										title="Open trade to buy 0.0002345 ETH from druglaw with total 7,285.88 NGN?"
-										placement="topRight"
-										ok-text="Yes"
-										cancel-text="No"
-										@confirm="confirm"
-										@cancel="cancel"
-									>
-										<button class="tw-p-3 tw-bg-blue-600 tw-text-white tw-rounded-md tw-border-none tw-font-semibold">buy now</button>
-
-									</a-popconfirm>
-								</div>
+										</a-radio-button>
+									</a-radio-group>
+								</a-input>
 							</div>
 						</div>
-						<div class="tw-mb-2">
-							<div class="tw-bg-gray-50 tw-px-6 tw-py-4 tw-flex tw-justify-between tw-items-center ">
-								<div>
-									<p class="tw-p-0 tw-m-0">
-										<span class="tw-text-blue-600 tw-text-lg tw-font-semibold">18,048,700.00 </span>
-										<span class=" tw-text-lg tw-font-semibold">NGN/ETH</span>
-										<span class=" tw-text-lg"> – via Guaranty Trust Bank</span>
-									</p>
-									<p class="tw-flex tw-p-0 tw-m-0 tw-mt-1">
-										<span class="tw-text-base">druglaw</span>
-									</p>
-									<p class="tw-p-0 tw-m-0 tw-mt-1">
-										<span class="tw-text-base">Total Amount: </span>
-										<span class="tw-text-base tw-font-semibold"> 0.0002345 ETH</span>
-									</p>
-									<p class="tw-p-0 tw-m-0 tw-mt-1">
-										<span class="tw-text-base">Completion time: ~30s</span>
-									</p>
-								</div>
-								<div>
-									<a-popconfirm
-										title="Open trade to buy 0.0002345 ETH from druglaw with total 7,285.88 NGN?"
-										placement="topRight"
-										ok-text="Yes"
-										cancel-text="No"
-										@confirm="confirm"
-										@cancel="cancel"
-									>
-										<button class="tw-p-3 tw-bg-blue-600 tw-text-white tw-rounded-md tw-border-none tw-font-semibold">buy now</button>
 
-									</a-popconfirm>
-								</div>
-							</div>
-						</div>
-						<div class="tw-mb-2">
-							<div class="tw-bg-gray-50 tw-px-6 tw-py-4 tw-flex tw-justify-between tw-items-center ">
+						<div class="tw-mb-2" v-for="s in 4" :key="s">
+							<div class="tw-bg-gray-50 tw-px-6 tw-py-4 tw-flex tw-justify-between tw-items-center">
 								<div>
-									<p class="tw-p-0 tw-m-0">
-										<span class="tw-text-blue-600 tw-text-lg tw-font-semibold">18,048,700.00 </span>
-										<span class=" tw-text-lg tw-font-semibold">NGN/ETH</span>
-										<span class=" tw-text-lg"> – via Guaranty Trust Bank</span>
-									</p>
-									<p class="tw-flex tw-p-0 tw-m-0 tw-mt-1">
-										<span class="tw-text-base">druglaw</span>
+									<div class="tw-flex">
+										<img
+											src="/team-1/team-1.jpg"
+											class="tw-w-10 tw-h-10 tw-mr-2 tw-rounded-full"
+										/>
+										<div class="tw-flex tw-flex-col">
+											<span class="tw-font-bold tw-text-complementary">Druglaw</span>
+											<span>
+											<a-icon
+												v-for="s in 4"
+												:key="s"
+												type="star"
+												theme="filled"
+												style="color: #f2c94c; font-size: 10px"
+											/>
+											<span class="tw-ml-2 tw-text-xs tw-font-semibold tw-text-gray-500">2,098 orders</span>
+											<span class="tw-ml-2 tw-text-xs tw-font-semibold tw-text-gray-500">92.8% completion rate</span>
+											</span>
+										</div>
+									</div>
+									<div class="tw-mt-3"> 
+										<p>
+											<span class="tw-m-0 tw-p-0 tw-text-sm tw-font-bold tw-text-green-400">28,890,789.98 NGN/ETH</span>
+											<span class=" tw-text-sm"> – via Guaranty Trust Bank</span>
+										</p>
+									</div>
+									<p class="tw-p-0 tw-m-0 tw-mt-1">
+										<span class="tw-text-xs tw-font-semibold">Available Asset: </span>
+										<span class="tw-text-sm tw-font-semibold"> 0.0002345 ETH</span>
 									</p>
 									<p class="tw-p-0 tw-m-0 tw-mt-1">
-										<span class="tw-text-base">Total Amount: </span>
-										<span class="tw-text-base tw-font-semibold"> 0.0002345 ETH</span>
-									</p>
-									<p class="tw-p-0 tw-m-0 tw-mt-1">
-										<span class="tw-text-base">Completion time: ~30s</span>
+										<span class="tw-text-xs">Completion time: ~30s</span>
 									</p>
 								</div>
 								<div>
@@ -146,7 +87,7 @@
 										@confirm="confirm"
 										@cancel="cancel"
 									>
-										<button class="tw-p-3 tw-bg-blue-600 tw-text-white tw-rounded-md tw-border-none tw-font-semibold">buy now</button>
+										<button class="tw-px-3 tw-py-1 tw-bg-green-500 tw-text-white tw-rounded-md tw-border-none tw-font-semibold">buy now</button>
 
 									</a-popconfirm>
 								</div>
@@ -163,7 +104,7 @@
 							<p class="tw-text-xs tw-font-semibold tw-text-blue-400">Please do not mention Bitcoin when you send money through the bank. If you mention Bitcoin when you send money through bank, we will block your account from future trading.</p>
 						</div>
 						<label>Select the Bank you're sending from</label>
-						<a-select class="tw-w-full" size="large">
+						<a-select class="tw-w-full">
 							<a-select-option value="UBA">
 								United Bank of Africa
 							</a-select-option>
@@ -207,49 +148,64 @@
 					</div>
 				</div>
 				<div v-if="current == 2">
-					<p class="tw-text-2xl tw-font-semibold tw-mt-10 tw-m-0 tw-p-0 tw-mb-3">Trade REF: #1442469T62113672</p>
-					<p class="tw-m-0 tw-p-0">
-						1. You are buying <span class="tw-text-blue-600 tw-font-semibold">0.00030000 ETH</span> from <span class="tw-text-blue-600 tw-font-semibold">darellaco</span> 
-					</p>
-					<p class="tw-m-0 tw-p-0 tw-mt-1">
-						2. Bitcoin of the seller is already locked and secured for this trade. Please send payment to the seller then confirm below.
-					</p>
-					<div class="tw-mt-2 tw-bg-gray-100 tw-px-6 tw-py-4  tw-rounded-lg">
-						<div>
-							<p class="tw-m-0 tw-p-0">Deposit Amount</p>
-							<p class="tw-m-0 tw-p-0 tw-text-base tw-font-semibold">NGN 5,782.00</p>
-						</div>
-						<div class="tw-mt-3"> 
-							<p class="tw-m-0 tw-p-0">Transaction Reference</p>
-							<p class="tw-m-0 tw-p-0 tw-text-base tw-font-semibold">M71154988P</p>
-						</div>
-						<div class="tw-mt-3">
-							<p class="tw-m-0 tw-p-0">Account Holder Name</p>
-							<p class="tw-m-0 tw-p-0 tw-text-base tw-font-semibold">Ola Chindeu Hassan</p>
-						</div>
-						<div class="tw-mt-3">
-							<p class="tw-m-0 tw-p-0">Account Number</p>
-							<p class="tw-m-0 tw-p-0 tw-text-base tw-font-semibold">0902820987</p>
-						</div>
-						<div class="tw-mt-3">
-							<p class="tw-m-0 tw-p-0">Bank</p>
-							<p class="tw-m-0 tw-p-0 tw-text-base tw-font-semibold">Guaranty Trust Bank</p>
+					<div class="tw-mt-3">
+						<p class="tw-m-0 tw-p-0 tw-text-xs tw-font-semibold">Trade Reference:</p>
+						<p class="tw-m-0 tw-p-0 tw-text-base tw-font-bold tw-text-gray-600">#1442469T62113672</p>
+					</div>
+					<div class="tw-mt-3 tw-p-3 tw-border tw-rounded-lg">
+						<p class="tw-m-0 tw-p-0 tw-text-xs">
+							1. You are buying <span class="tw-text-blue-600 tw-font-semibold">0.00030000 ETH</span> from <span class="tw-text-blue-600 tw-font-semibold">darellaco</span> 
+						</p>
+						<p class="tw-m-0 tw-p-0 tw-mt-1 tw-text-xs">
+							2. Bitcoin of the seller is already locked and secured for this trade. Please send payment to the seller then confirm below.
+						</p>
+						<div class="tw-mt-2 tw-bg-gray-100 tw-px-6 tw-py-2  tw-rounded-lg">
+							<div class="tw-flex">
+								<div class="tw-w-1/2">
+									<div>
+										<p class="tw-m-0 tw-p-0 tw-text-xs tw-font-semibold">Deposit Amount</p>
+										<p class="tw-m-0 tw-p-0 tw-text-sm tw-font-bold">NGN 5,782.00</p>
+									</div>
+									<div class="tw-mt-1"> 
+										<p class="tw-m-0 tw-p-0 tw-text-xs tw-font-semibold">Transaction Reference</p>
+										<p class="tw-m-0 tw-p-0 tw-text-sm tw-font-bold">M71154988P</p>
+									</div>
+								</div>
+								<div class="tw-w-1/2">
+									<div>
+										<p class="tw-m-0 tw-p-0 tw-text-xs tw-font-semibold">Account Holder Name</p>
+										<p class="tw-m-0 tw-p-0 tw-text-sm tw-font-bold">Ola Chindeu Hassan</p>
+									</div>
+									<div class="tw-mt-1">
+										<p class="tw-m-0 tw-p-0 tw-text-xs tw-font-semibold">Bank</p>
+										<p class="tw-m-0 tw-p-0 tw-text-sm tw-font-bold">Guaranty Trust Bank</p>
+									</div>
+									<div class="tw-mt-1">
+										<p class="tw-m-0 tw-p-0 tw-text-xs tw-font-semibold">Account Number</p>
+										<p class="tw-m-0 tw-p-0 tw-text-sm tw-font-bold">0902820987</p>
+									</div>	
+								</div>
+							</div>						
 						</div>
 					</div>
+					
 					<div class="tw-mt-2 tw-bg-red-50 tw-px-3 tw-py-2  tw-rounded-lg">
-						 <a-statistic-countdown
-							title="Time left to Pay"
+						<div class="tw-flex tw-justify-between tw-items-center">
+							<a-statistic-countdown
+							title="Kindly make payment within"
 							:value="deadline"
 							format="HH:mm:ss"
-							style="margin-right: 50px"
-						/>
+							style="margin-right: 50px"/>
+							<a-button class="tw-bg-complementary tw-text-white tw-rounded-md tw-border-none tw-font-semibold" @click="next"> I have made payment</a-button>
+						</div>
+						
 						<p class="tw-m-0 tw-p-0 tw-text-xs tw-font-semibold">When the countdown is over, the trade will be cancelled and we will send the fund back to the seller.</p>
 					</div>
 					<div class="tw-mt-2 tw-">
 						<p class="tw-m-0 tw-p-0 tw-text-yellow-500 tw-text-xs tw-font-semibold"><a-icon type="loading" /> Confirming Payment</p>
 						<p class="tw-m-0 tw-p-0 tw-text-yellow-500 tw-text-xs tw-font-semibold"><a-icon type="loading" /> Awaiting Fund Confirmation from Seller</p>
 					</div>
-					<div class="tw-mt-3">
+					<div class="tw-mt-6">
 						<p class="tw-m-0 tw-p-0 tw-text-sm">Kindly upload proof of payment after funds transfer</p>
 						<a-upload
 							name="avatar"
@@ -270,7 +226,7 @@
 						</a-upload>
 					</div>
 					<div class="tw-flex tw-justify-end">
-						<a-popconfirm class="tw-mt-2"
+						<a-popconfirm class="tw-w-30"
 							placement="topRight"
 							ok-text="Yes"
 							cancel-text="No"
@@ -280,9 +236,9 @@
 							<template slot="title">
 								<p>Please confirm you want to cancel this trade</p>
 							</template>
-							<button class="tw-p-3 tw-mr-2 tw-bg-red-500 tw-text-white tw-rounded-md tw-border-none tw-font-semibold"><a-icon type="close-circle" /> Cancel trade</button>
+							<button class="tw-px-3 tw-mr-2 tw-bg-red-500 tw-text-white tw-rounded-md tw-border-none tw-font-semibold"> Cancel trade</button>
 						</a-popconfirm>
-						<button class="tw-bg-blue-600 tw-text-white tw-rounded-md tw-border-none tw-font-semibold" @click="next"><a-icon type="check-circle" /> Confirm</button>
+						<a-button class="tw-w-30 tw-bg-primary tw-text-white tw-rounded-md tw-border-none tw-font-semibold" @click="next"> Confirm</a-button>
 					</div>
 				</div>
 				<div v-if="current == 3">
@@ -306,8 +262,8 @@
 									</div>
 								</div>
 								<div class="tw-mt-6">
-									<a-input size="large" placeholder="Say someting nice" addon-after="" aria-placeholder=""/>
-									<button class="tw-mt-2 tw-p-2 tw-bg-blue-600 tw-text-white tw-rounded-md tw-border-none tw-font-semibold"><a-icon type="check-circle" /> Confirm</button>
+									<a-input placeholder="Say someting nice" addon-after="" aria-placeholder=""/>
+									<button class="tw-mt-2 tw-p-2 tw-bg-primary tw-text-white tw-rounded-md tw-border-none tw-font-semibold"><a-icon type="check-circle" /> Confirm</button>
 								</div>
 							</center>
 						</div>

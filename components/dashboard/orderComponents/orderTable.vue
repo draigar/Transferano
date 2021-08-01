@@ -6,19 +6,20 @@
     :data-source="data"
     :pagination="pagination"
     :loading="loading"
+	size="small"
   >
     <div  slot="coin" slot-scope="coin" class="tw-flex tw-items-center">
         <img :src="`/icons/${coin.img}`" class="tw-w-7 tw-mr-1" />
-        <span class="tw-font-semibold tw-text-base">{{ coin.name }}</span>
+        <span class="tw-font-semibold tw-text-sm">{{ coin.name }}</span>
     </div>
-    <span slot="rate" slot-scope="rate"> ${{ rate }} </span>
+    <span slot="rate" slot-scope="rate" class="tw-text-sm"> ${{ rate }} </span>
     <div slot="buyer" slot-scope="buyer" class="tw-flex">
       <img
         :src="`/team-1/${buyer.img}`"
         class="tw-w-10 tw-h-10 tw-mr-2 tw-rounded-full"
       />
       <div class="tw-flex tw-flex-col">
-        <span class="">{{ buyer.name }}</span>
+        <span class="tw-text-sm">{{ buyer.name }}</span>
         <span>
           <a-icon
             v-for="s in buyer.star"
@@ -31,7 +32,7 @@
       </div>
     </div>
     <span slot="action">
-      <a-button type="primary" class="hover:tw-bg-primary hover:tw-outline-none hover:tw-text-white" @click="buyAdModal" ghost>
+      <a-button type="primary" class="hover:tw-bg-primary hover:tw-outline-none hover:tw-text-white" @click="buyAdModal">
         sell
       </a-button>
     </span>

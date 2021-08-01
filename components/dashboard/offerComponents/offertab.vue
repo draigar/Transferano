@@ -1,10 +1,10 @@
 <template>
     <div class="">
 		<div class="tw-px-6 tw-mb-3">
-			<a-button size="large" class="tw-mr-1 tw-text-white tw-rounded-md tw-border-none tw-font-bold" type="primary" @click="buyAdModal">
+			<a-button class="tw-mr-1 tw-text-white tw-rounded-md tw-border-none tw-font-bold" type="primary" @click="buyAdModal">
 				Create Buy Ad
 			</a-button>
-			<a-button size="large" class="tw-mr-1 tw-text-white tw-rounded-md tw-border-none tw-font-bold" type="primary" @click="sellAdModal">
+			<a-button class="tw-mr-1 tw-text-white tw-rounded-md tw-border-none tw-font-bold" type="primary" @click="sellAdModal">
 				Create Sell Ad
 			</a-button>
 		</div>
