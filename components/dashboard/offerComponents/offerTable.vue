@@ -27,23 +27,59 @@
         <img :src="`/icons/${coin.img}`" class="tw-w-7 tw-mr-1" />
         <span class="tw-font-semibold tw-text-sm">{{ coin.name }}</span>
     </div>
-    <div slot="buyer" slot-scope="buyer" class="tw-flex">
-      <img
-        :src="`/team-1/${buyer.img}`"
-        class="tw-w-10 tw-h-10 tw-mr-2 tw-rounded-full"
-      />
-      <div class="tw-flex tw-flex-col">
-        <span class="tw-text-sm">{{ buyer.name }}</span>
-        <span>
-          <a-icon
-            v-for="s in buyer.star"
-            :key="s"
-            type="star"
-            theme="filled"
-            style="color: #f2c94c; font-size: 10px"
-          />
-        </span>
-      </div>
+    <div slot="buyer" slot-scope="buyer">
+		<a-popover placement="right">
+			<template slot="content">
+				<div class="tw-text-gray-600 tw-text-xs tw-font-normal">credibility score </div>
+				<div class="tw-font-bold tw-text-xs">300</div>
+				
+				<div class="tw-text-gray-600 tw-text-xs tw-font-ormal tw-mt-1">credibility summary </div>                                            
+				<div class="tw-flex tw-justify-between">
+					<div class="tw-mr-6">
+						<a-icon type="smile" theme="filled" class="tw-text-gray-600 tw-text-xs"/>
+						<p class="tw-font-bold tw-text-xs">1,118</p>
+					</div>
+					<div  class="tw-mr-6">
+						<a-icon type="meh" theme="filled" class="tw-text-gray-600 tw-text-xs"/>
+						<p class="tw-font-bold tw-text-xs">118</p>
+					</div>
+					<div class="">
+						<a-icon type="frown" theme="filled" class="tw-text-gray-600 tw-text-xs"/>
+						<p class="tw-font-bold tw-text-xs">23</p>
+					</div>
+				</div>
+			</template>
+			<template slot="title">
+				<span>{{ buyer.name }} - </span>
+				<span>
+					<a-icon
+						v-for="s in buyer.star"
+						:key="s"
+						type="star"
+						theme="filled"
+						style="color: #f2c94c; font-size: 10px"
+					/>
+				</span>
+			</template>
+        	<div class="tw-flex">
+				<img
+					:src="`/team-1/${buyer.img}`"
+					class="tw-w-10 tw-h-10 tw-mr-2 tw-rounded-full"
+				/>
+				<div class="tw-flex tw-flex-col">
+					<span class="tw-text-sm">{{ buyer.name }}</span>
+					<span>
+					<a-icon
+						v-for="s in buyer.star"
+						:key="s"
+						type="star"
+						theme="filled"
+						style="color: #f2c94c; font-size: 10px"
+					/>
+					</span>
+				</div>
+			</div>
+      </a-popover>
     </div>
     <span slot="action">
       <a-dropdown-button><a-icon type="menu-unfold" /> action
