@@ -9,115 +9,112 @@
       <div
         class="tw-h-full tw-flex tw-flex-col tw-bg-white tw-rounded-lg tw-py-8"
       >
-      <a-alert
-        v-if="failedLogin"
-        message="Login Error"
-        description="We could not log you in, do try again"
-        type="error"
-        closable
-      />
-        <div class="tw-w-full tw-px-8 tw-flex tw-justify-center tw-mb-4">
-          <img src="icons/authBoy.svg" style="width: 120px" />
-        </div>
-        <form @submit.prevent="submit">
-          <div
-            class="
-              tw-w-full tw-flex tw-justify-center tw-items-center tw-flex-col
-            "
-          >
-            <h1
-              style="font-weight: 600; font-size: 25px"
-              class="tw-p-0 tw-m-0 tw-font-nunito"
-            >
-              Welcome Back
-            </h1>
-            <p
-              class="tw-p-0"
-              style="font-weight: 400; font-size: 16px; line-height: 27px"
-            >
-              Let's start with your email
-            </p>
-            <a-button
-              class="
-                tw-bg-wite
-                tw-shadow-lg
-                tw-flex
-                tw-items-center
-                tw-justify-center
-              "
-              type="button"
-              style="width: 315px; height: 40px"
-              size="large"
-              @click="loginWith('google')"
-            >
-              <a-icon type="google" class="tw-px-4" /> Login with Google
-            </a-button>
-            <span class="tw-text-sm tw-py-4">OR</span>
-            <div v-if="!sentLink" style="width: 315px">
-              <label class="">Email:</label>
-              <a-input
-                placeholder="e.g damishow@transferano.com"
-                class="tw-w-full tw-shadow-sm tw-mt-2"
-                style="height: 40px"
-                v-model="email"
-              />
-            </div>
-            <div v-else style="width: 315px">
-              <label class="">Verification code:</label>
-              <a-input
-                placeholder="6 digit code sent to your email"
-                class="tw-w-full tw-shadow-sm tw-mt-2"
-                style="height: 40px"
-                v-model="code"
-              />
-            </div>
-            <a-button
-              class="
-                tw-bg-wite
-                tw-shadow-lg
-                tw-flex
-                tw-items-center
-                tw-justify-center
-                tw-bg-primary
-                tw-text-white
-                tw-mt-4
-              "
-              :loading="isEmailLoading"
-              v-if="!sentLink"
-              style="width: 315px; height: 40px"
-              size="large"
-              @click="submit"
-            >
-              Request code
-            </a-button>
-            <a-button
-              v-else
-              class="
-                tw-bg-wite
-                tw-shadow-lg
-                tw-flex
-                tw-items-center
-                tw-justify-center
-                tw-bg-primary
-                tw-text-white
-                tw-mt-4
-              "
-              :loading="isCodeLoading"
-              style="width: 315px; height: 40px"
-              size="large"
-              @click="submit"
-            >
-              Verify & login
-            </a-button>
+        <a-alert
+          v-if="failedLogin"
+          message="Login Error"
+          description="We could not log you in, do try again"
+          type="error"
+          closable
+        />
+        <div v-if="!sentLink">
+          <div class="tw-w-full tw-px-8 tw-flex tw-justify-center tw-mb-4">
+            <img src="icons/authBoy.svg" style="width: 120px" />
           </div>
-        </form>
+          <form @submit.prevent="submit">
+            <div
+              class="
+                tw-w-full tw-flex tw-justify-center tw-items-center tw-flex-col
+              "
+            >
+              <h1
+                style="font-weight: 600; font-size: 25px"
+                class="tw-p-0 tw-m-0 tw-font-nunito"
+              >
+                Welcome Back
+              </h1>
+              <p
+                class="tw-p-0"
+                style="font-weight: 400; font-size: 16px; line-height: 27px"
+              >
+                Let's start with your email
+              </p>
+              <a-button
+                class="
+                  tw-bg-wite
+                  tw-shadow-lg
+                  tw-flex
+                  tw-items-center
+                  tw-justify-center
+                "
+                type="button"
+                style="width: 315px; height: 40px"
+                size="large"
+                @click="loginWith('google')"
+              >
+                <a-icon type="google" class="tw-px-4" /> Login with Google
+              </a-button>
+              <span class="tw-text-sm tw-py-4">OR</span>
+              <div v-if="!sentLink" style="width: 315px">
+                <label class="">Email:</label>
+                <a-input
+                  placeholder="e.g damishow@transferano.com"
+                  class="tw-w-full tw-shadow-sm tw-mt-2"
+                  style="height: 40px"
+                  v-model="email"
+                />
+              </div>
+              <a-button
+                class="
+                  tw-bg-wite
+                  tw-shadow-lg
+                  tw-flex
+                  tw-items-center
+                  tw-justify-center
+                  tw-bg-primary
+                  tw-text-white
+                  tw-mt-4
+                "
+                :loading="isEmailLoading"
+                v-if="!sentLink"
+                style="width: 315px; height: 40px"
+                size="large"
+                @click="submit"
+              >
+                Request code
+              </a-button>
+              <a-button
+                v-else
+                class="
+                  tw-bg-wite
+                  tw-shadow-lg
+                  tw-flex
+                  tw-items-center
+                  tw-justify-center
+                  tw-bg-primary
+                  tw-text-white
+                  tw-mt-4
+                "
+                :loading="isCodeLoading"
+                style="width: 315px; height: 40px"
+                size="large"
+                @click="submit"
+              >
+                Verify & login
+              </a-button>
+            </div>
+          </form>
+        </div>
+        <div v-else>
+          <h1>Login Verification</h1>
+          <p>A verification link has been sent to <strong>{{email}}</strong>, click the link to complete your login</p>
+        </div>
       </div>
     </a-modal>
   </div>
 </template>
 <script>
 import Auth0 from 'auth0-js'
-import {mapState} from 'vuex';
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -129,7 +126,7 @@ export default {
       isCodeLoading: false,
     }
   },
-  computed: mapState("auth", ["failedLogin"]),
+  computed: mapState('auth', ['failedLogin']),
   beforeDestroy() {
     this.$nuxt.$off()
   },
@@ -147,21 +144,21 @@ export default {
     },
     loginWith(sso) {
       if (sso === 'google') {
-        this.$auth.loginWith('google')
-        .then((r) => {
-          console.log(r);
-        })
-        .catch((e) => {
-          console.log(e);
-        })
+        this.$auth
+          .loginWith('google')
+          .then((r) => {
+            console.log(r)
+          })
+          .catch((e) => {
+            console.log(e)
+          })
       }
     },
     handleOk(e) {
       console.log(e)
       this.visible = false
     },
-    submitEmail(auth0) {
-      this.isEmailLoading = true
+    submitEmail() {
       auth0.passwordlessStart(
         {
           connection: 'email',
@@ -213,19 +210,40 @@ export default {
         }
       )
     },
-    submit(e) {
-      e.preventDefault();
-      const auth0 = new Auth0.WebAuth({
-        domain: process.env.AUTH_DOMAIN,
-        clientID: process.env.CLIENT_ID,
-        redirectUri: 'http://localhost:3050/auth/signed-in',
-        responseType: 'token',
-      })
-      if (!this.sentLink) {
-        this.submitEmail(auth0)
-      } else {
-        this.submitCode(auth0)
+    async fetch(context) {
+      console.log(this.$nuxt.context)
+    },
+    async submit(e) {
+      e.preventDefault()
+      this.isEmailLoading = true
+      const payload = {
+        email: this.email,
+        redirectUri: 'string',
+        ipAddress: 'string',
+        referral: 'string',
       }
+      this.http('POST', 'identity/login', payload)
+        .then((r) => {
+          this.sentLink = true
+          // this.
+        })
+        .catch((e) => {
+          this.sentLink = false
+          console.log('====================================')
+          console.log(e)
+          console.log('====================================')
+        })
+      // const auth0 = new Auth0.WebAuth({
+      //   domain: process.env.AUTH_DOMAIN,
+      //   clientID: process.env.CLIENT_ID,
+      //   redirectUri: 'http://localhost:3050/auth/signed-in',
+      //   responseType: 'token',
+      // })
+      // if (!this.sentLink) {
+      //   this.submitEmail(auth0)
+      // } else {
+      //   this.submitCode(auth0)
+      // }
     },
   },
 }

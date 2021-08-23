@@ -5,16 +5,17 @@ export default function ({ app, $axios, $cookies, redirect, store, $auth }, inje
         common: {
           Accept: 'application/json, text/plain, */*'
         },
-        timeout: 6000,
-        Authorization: {
-          Bearer: ''
-        }
+        timeout: 6000
+        // Authorization: {
+        //   Bearer: ''
+        // }
       }
     });
   
     $axios.onRequest(config => {
-      // console.log('Making request to ' + userToken)
+      console.log('Making request to ' + $cookies.get('transferano.auth._token.local'))
       $axios.setHeader('Authorization', `Bearer `)
+      $axios.setHeader('X-API-KEY', `0C73F45A-3D8A-4E78-814A-539F48343A80`)
     });
   
     $axios.onError(error => {

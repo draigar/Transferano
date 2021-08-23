@@ -12,12 +12,12 @@ Vue.mixin({
           method: method,
           url: url,
           data: dataOBJ,
-          headers: headers,
+          headers: {},
         })
         return res;
       } catch (e) {
         console.log('main error here ',e);
-        // return e.response
+        return e.response
       }
     },
     auth() {

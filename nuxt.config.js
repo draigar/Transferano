@@ -79,7 +79,31 @@ export default {
 
   auth: {
     // Options
+    redirect: {
+      login: '/',
+      logout: '/',
+      callback: '/auth/signed-in',
+      home: '/app'
+    },
+    cookie: {
+      prefix: 'transferano.auth.',
+      options: {
+        path: '/'
+      }
+    },
+    autoFetch: false,
     strategies: {
+      local: {
+        token: {
+          required: false,
+          type: false
+        },
+        endpoints: {
+          login: { url: 'identity/login', method: 'post' },
+          user: { url: 'profile', method: 'get'}
+          // user: false
+        }
+      },
       google: {
         clientId: '530632032738-hpn3u6fv1dqfopd30s4t051pmiu1ft6j.apps.googleusercontent.com',
         scope: ['profile', 'email'],
@@ -125,7 +149,7 @@ export default {
   
   router: {
     // base: '/app/',
-    middleware: ['index'],
+    middleware: ['index', 'auth'],
   },
 
   
@@ -139,7 +163,7 @@ export default {
     AUTH_DOMAIN: process.env.AUTH_DOMAIN,
     CLIENT_ID: process.env.CLIENT_ID,
     CLIENT_SECRET: process.env.CLIENT_SECRET,
-    BASE_URL: process.env.BASE_URL,
+    BASE_URL: process.env.BASE_API,
   }
   
 }

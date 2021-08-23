@@ -5,7 +5,41 @@
 <script>
 // import Auth0 from 'auth0-js'
 export default {
+  auth: false,
   layout: 'landing',
+  created() {
+    const hash = this.$route.params.index
+    const payload = {
+      "ipAddress": "string",
+      "ssoProvider": 1,
+      "token": hash,
+      "redirectUrl": "string",
+      "referral": "string"
+    }
+    this.http('POST', 'identity/verify', payload)
+    .then((r) => {
+      const data = r.data.data
+      const us = {
+        isLoggedIn: true,
+        isNewUser: data.isNewUser,
+      }
+      const re = {
+        refreshToken: data.refreshToken,
+        token: data.token,
+      }
+      this.$auth
+      this.$auth.setUser(us)
+      this.$auth.setUserToken(re)
+      .then((r) => {
+        this.$router.push('/app');
+      })
+    })
+    .catch((e) => {
+      console.log('====================================');
+      console.log(e);
+      console.log('====================================');
+    })
+  },
   mounted() {
     // const auth0 = new Auth0.WebAuth({
     //   domain: process.env.AUTH_DOMAIN,
@@ -13,9 +47,6 @@ export default {
     //   redirectUri: 'http://localhost:3050/auth/signed-in',
     //   responseType: 'token',
     // })
-    const hash = this.$route.hash
-    const splitUrl = hash.split('&')
-    console.log(splitUrl)
     
     // const _this = this;
     // auth0.parseHash({ hash: hash }, function (err, authResult) {
